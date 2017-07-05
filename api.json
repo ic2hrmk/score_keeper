@@ -1,0 +1,80 @@
+{
+  "_type": "export",
+  "__export_format": 2,
+  "__export_date": "2017-07-05T18:48:25.577Z",
+  "__export_source": "insomnia.desktop.app:v3.6.8",
+  "resources": [
+    {
+      "modified": 1499276436992,
+      "created": 1499276398004,
+      "parentId": null,
+      "name": "SCORE KEEPER",
+      "_id": "wrk_3aa915c8b6c44ba1a10be1fc58d498bb",
+      "_type": "workspace"
+    },
+    {
+      "modified": 1499276418833,
+      "created": 1499276402145,
+      "parentId": "wrk_3aa915c8b6c44ba1a10be1fc58d498bb",
+      "name": "Base Environment",
+      "data": {
+        "api_path": "localhost:8080"
+      },
+      "_id": "env_a339ca4ce68f4b24a7a700d321b720ac",
+      "_type": "environment"
+    },
+    {
+      "modified": 1499279661172,
+      "created": 1499276476080,
+      "parentId": "wrk_3aa915c8b6c44ba1a10be1fc58d498bb",
+      "name": "Default Jar",
+      "cookies": [],
+      "_id": "jar_98ee27223f6240e6b404868b4ef018ff",
+      "_type": "cookie_jar"
+    },
+    {
+      "modified": 1499278784724,
+      "created": 1499276501772,
+      "parentId": "wrk_3aa915c8b6c44ba1a10be1fc58d498bb",
+      "url": "http://{{api_path}}/new_record",
+      "name": "Add record",
+      "method": "POST",
+      "body": "{\n\t\"player\": \"me\",\n\t\"score\": 100001\n}",
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "_id": "req_2a4fa8a9121e4f3e9ee290761e4095e6",
+      "_type": "request"
+    },
+    {
+      "modified": 1499276484895,
+      "created": 1499276448999,
+      "parentId": "wrk_3aa915c8b6c44ba1a10be1fc58d498bb",
+      "url": "http://{{api_path}}/leader_board",
+      "name": "Get Leader Board",
+      "method": "GET",
+      "body": "",
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "_id": "req_b1deff61492e42eca8a479bdab4290f7",
+      "_type": "request"
+    },
+    {
+      "modified": 1499276433048,
+      "created": 1499276423787,
+      "parentId": "env_a339ca4ce68f4b24a7a700d321b720ac",
+      "name": "localhost",
+      "data": {
+        "api_path": "localhost:8080"
+      },
+      "_id": "env_c1c96c36f7f0415988364a95105c3aa7",
+      "_type": "environment"
+    }
+  ]
+}
