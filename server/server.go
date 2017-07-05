@@ -16,6 +16,19 @@ const (
 	leaderBoardPath = "/leader_board"
 )
 
+const (
+	logo = `
+		   _____                      _  __
+		  / ____|                    | |/ /
+		 | (___   ___ ___  _ __ ___  | ' / ___  ___ _ __   ___ _ __
+		  \___ \ / __/ _ \| '__/ _ \ |  < / _ \/ _ \ '_ \ / _ \ '__|
+		  ____) | (_| (_) | | |  __/ | . \  __/  __/ |_) |  __/ |
+		 |_____/ \___\___/|_|  \___| |_|\_\___|\___| .__/ \___|_|
+							   | |
+							   |_|
+	`
+)
+
 type Server struct {
 	port string
 	db *db.DataBase
@@ -78,6 +91,8 @@ func (server *Server) saveNewRecord(rw http.ResponseWriter, req *http.Request) {
 			log.Println("ERROR: " + err.Error())
 		}
 
+		recordJSON, _ := json.MarshalIndent(record, "  ", "  ")
+		rw.Write(recordJSON)
 
 		log.Println(leaderBoardPath + ": POST new record")
 	} else {
@@ -101,8 +116,9 @@ func (server *Server) Run() {
 	http.HandleFunc(newRecordPath, server.saveNewRecord)
 	http.HandleFunc(leaderBoardPath, server.getLeaderBoard)
 
-	log.Println("Linker server started at port " + server.port)
-	log.Println("Awaiting for connections...")
+	log.Println(logo)
+	log.Println("Score keeper server started at port " + server.port +". Enjoy your game!")
+	log.Println("Awaiting for new records...")
 
 	err = http.ListenAndServe(":" + server.port, nil)
 	log.Fatal(err.Error())
